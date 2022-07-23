@@ -1,7 +1,43 @@
-﻿
+﻿@model NeonNotesOnline.Models.Register
 @{
     ViewBag.PageTitle = "Neon Register";
 }
 
-<h2>Register</h2>
+<div id="loginDiv">
+    <div id="loginDivContent">
+        <ul id="ulRegister">
+            <li>
+                @using (Html.BeginForm("RegisterProcess", "Auth"))
+                {
+                    @Html.AntiForgeryToken()
+                <div id="divRegisterForm">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div id="logoImgReg">
+                    </div>
+                    <div>
+                        @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "loginInput", placeholder = "Firstname" } })
+                        @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "loginInput", placeholder = "Lastname" } })
+                        @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "loginInput", placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "loginInput", placeholder = "Password" } })
+                        @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                    </div>
+                    <button id="btnLogin">Register</button>
+                    <p id="noteBringerRegister">If you do not have an existing account, @Html.ActionLink("Login Here!", "Index", "Auth", null, new { @style = "color: #140021;" })</p>
+                </div>
+                }
+            </li>
+            <li>
+            </li>
+        </ul>
+    </div>
+</div>
 

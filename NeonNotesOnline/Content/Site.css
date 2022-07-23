@@ -61,6 +61,34 @@
         overflow-y: auto;
     }
 
+#ulRegister {
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+    #ulRegister li:nth-of-type(1) {
+        /*background: green;*/
+        width: 50%;
+        background: #560090;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        overflow-y: auto;
+    }
+
+    #ulRegister li:nth-of-type(2) {
+        /*background: lime;*/
+        width: 50%;
+        background: url('/Resources/neonbglogin.png');
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-repeat: no-repeat;
+    }
+
 #logoImg{
     background: url('/Resources/neonlogo.png');
     width: 90%;
@@ -73,9 +101,28 @@
     margin-bottom: 30px;
 }
 
+#logoImgReg {
+    background: url('/Resources/neonlogo.png');
+    width: 90%;
+    max-width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
 #divLoginForm {
     background: transparent;
     text-align: center;
+}
+
+#divRegisterForm {
+    background: transparent;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 20px;
 }
 
 .loginInput {
@@ -109,6 +156,13 @@
     margin-bottom: 20px;
 }
 
+#noteBringerRegister {
+    color: #140021;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
 .link_mod {
     color: #9900ff;
 }
@@ -125,6 +179,26 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #9900ff;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #560090;
+}
+
+/* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #9900ff;
+    }
 
 @media screen and (max-width: 720px) {
     #ulLogin {
@@ -144,6 +218,30 @@
             width: 100%;
             min-height: 200px;
             background: linear-gradient(-30deg, #560090 5%, #140021 40%);
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+    #ulRegister {
+        flex-direction: column;
+        height: auto;
+    }
+
+        #ulRegister li:nth-of-type(1) {
+            width: 100%;
+            min-height: 300px;
+            height: auto;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 10px;
+            background: #560090;
+        }
+
+        #ulRegister li:nth-of-type(2) {
+            width: 100%;
+            background: url('/Resources/neonbgloginvertical.png');
+            min-height: 200px;
             border-top-right-radius: 0px;
             border-bottom-right-radius: 10px;
             border-bottom-left-radius: 10px;
