@@ -1,7 +1,37 @@
-﻿
+﻿@model NeonNotesOnline.Models.NotesList
 @{
    
 }
 
-<h2>Index @ViewBag.PageTitle</h2>
+<div id="divHome">
+    <ul id="ulHome">
+        <li>
+            <div id="logoHome"></div>
+            @Html.ActionLink("Notes", "Index", "Home", null, new { id = "labelHome" })
+        </li>
+        <li>
+            <div id="divliLink">
+                @Html.ActionLink("About", "About", "Home", null, new { id = "linksHome" })
+            </div>
+        </li>
+    </ul>
+</div>
+<div id="divContent">
+    <ul id="ulContent">
+        <li>
+            <div id="divCreateContent">
+                <p id="labelCreateContent">Create Note</p>
+                @using (Html.BeginForm("AddNote", "Home"))
+                {
+                    <div id="divFormCreateContent">
+                        @Html.EditorFor(model => model.notesSubject, new { htmlAttributes = new { @id = "inputSubject", @placeholder = "Subject" } })
+                        @Html.TextAreaFor(model => model.notesContent, new { @id = "inputContent", @placeholder = "Write Someting..." })
+                        <button id="btnAddNote">Add Note</button>
+                    </div>
+                }
+            </div>
+        </li>
+        <li>Hello</li>
+    </ul>
+</div>
 

@@ -3,5 +3,17 @@
     ViewBag.PageTitle = ViewData["PageTitle"];
 }
 
-<h2>About</h2>
+<div id="divHome">
+    <ul id="ulHome">
+        <li>
+            <div id="logoHome"></div>
+            @Html.ActionLink("Notes", "Index", "Home", null, new { id = "labelHome" })
+        </li>
+        <li>
+            <div id="divliLink">
+                @Html.ActionLink("About", "About", "Home", null, new { id = "linksHome" })
+            </div>
+        </li>
+    </ul>
+</div>
 

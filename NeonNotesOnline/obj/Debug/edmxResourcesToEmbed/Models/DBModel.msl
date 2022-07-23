@@ -18,6 +18,7 @@
         <MappingFragment StoreEntitySet="NotesTable">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="notesSubject" ColumnName="notesSubject" />
           <ScalarProperty Name="notesContent" ColumnName="notesContent" />
           <ScalarProperty Name="dateMade" ColumnName="dateMade" />
         </MappingFragment>

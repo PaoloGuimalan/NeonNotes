@@ -96,6 +96,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Models\DBModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DBModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBModel.edmx</DependentUpon>
+      <LastGenOutput>DBModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Resources\neonbglogin.png" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -115,16 +125,6 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Models\DBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DBModel.Context.cs</LastGenOutput>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\DBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DBModel.edmx</DependentUpon>
-      <LastGenOutput>DBModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Resources\neonbgloginvertical.png" />
     <Content Include="Resources\neonlogo.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -175,6 +175,7 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginData.cs" />
+    <Compile Include="Models\LoginStatusCreds.cs" />
     <Compile Include="Models\NotesArray.cs" />
     <Compile Include="Models\NotesList.cs" />
     <Compile Include="Models\NotesTable.cs">

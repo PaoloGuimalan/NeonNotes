@@ -11,19 +11,20 @@
           </Key>
           <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="firstName" Type="text" Nullable="false" />
-          <Property Name="lastName" Type="text" Nullable="false" />
-          <Property Name="email" Type="text" Nullable="false" />
-          <Property Name="password" Type="text" Nullable="false" />
+          <Property Name="firstName" Type="varchar(max)" Nullable="false" />
+          <Property Name="lastName" Type="varchar(max)" Nullable="false" />
+          <Property Name="email" Type="varchar(max)" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="NotesTable">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="text" Nullable="false" />
-          <Property Name="notesContent" Type="text" Nullable="false" />
-          <Property Name="dateMade" Type="datetime" Nullable="false" />
+          <Property Name="username" Type="varchar(max)" Nullable="false" />
+          <Property Name="notesSubject" Type="varchar(max)" Nullable="false" />
+          <Property Name="notesContent" Type="varchar(max)" Nullable="false" />
+          <Property Name="dateMade" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityContainer Name="NeonNotesDBModelStoreContainer">
           <EntitySet Name="AccountsTable" EntityType="Self.AccountsTable" Schema="dbo" store:Type="Tables" />
@@ -51,8 +52,9 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="notesSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="notesContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="dateMade" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateMade" Type="DateTime" Nullable="false" Precision="7" />
         </EntityType>
         <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AccountsTables" EntityType="Self.AccountsTable" />
@@ -81,6 +83,7 @@
               <MappingFragment StoreEntitySet="NotesTable">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="notesSubject" ColumnName="notesSubject" />
                 <ScalarProperty Name="notesContent" ColumnName="notesContent" />
                 <ScalarProperty Name="dateMade" ColumnName="dateMade" />
               </MappingFragment>

@@ -167,6 +167,154 @@
     color: #9900ff;
 }
 
+#divHome {
+    background: transparent;
+    width: 100%;
+    min-height: 60px;
+}
+
+#ulHome {
+    height: 100%;
+    display: flex;
+    width: calc(100% - 20px);
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+}
+
+#ulHome li{
+    width: 100px;
+}
+
+#ulHome li:first-of-type{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    max-width: 150px;
+}
+
+#logoHome {
+    background: url('/Resources/neonlogo.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+}
+
+#labelHome {
+    color: #9900ff;
+    height: 100%;
+    max-height: calc(60px - 8px);
+    width: calc(100% - 50px);
+    text-align: left;
+    padding-top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    text-decoration: none;
+
+}
+
+#linksHome {
+    color: #9900ff;
+    height: 100px;
+    width: calc(100% - 50px);
+    text-align: left;
+    padding-top: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#divliLink{
+    height: 100%;
+    max-height: 60px;
+    padding-top: 8px;
+}
+
+#divContent{
+    width: 100%;
+    height: calc(100% - 60px);
+}
+
+#ulContent{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#ulContent li:first-of-type{
+    width: 300px;
+}
+
+#ulContent li:last-of-type{
+    width: calc(100% - 300px);
+}
+
+#divCreateContent{
+    margin-top: 20px;
+    width: 100%;
+}
+
+#labelCreateContent{
+    color: #9900ff;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#inputSubject{
+    width: 90%;
+    border-radius: 10px;
+    height: 40px;
+    border: solid 1px #9900ff;
+    background: #140021;
+    color: #9900ff;
+    font-size: 15px;
+    text-align: center;
+}
+
+#inputContent {
+    width: 90%;
+    margin-top: 15px;
+    border-radius: 10px;
+    height: 150px;
+    min-height: 150px;
+    background: #140021;
+    border: solid 1px #9900ff;
+    color: #9900ff;
+    font-size: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#btnAddNote {
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: solid 2px #560090;
+    background: #9900ff;
+    color: #140021;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#divFormCreateContent {
+    width: 100%;
+    text-align: center;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #9900ff;
     opacity: 1; /* Firefox */
@@ -251,6 +399,24 @@
         max-height: none;
         height: auto;
     }
+
+    #divContent {
+        height: auto;
+    }
+
+    #ulContent {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+        #ulContent li:first-of-type {
+            width: 100%;
+        }
+
+        #ulContent li:last-of-type {
+            width: 100%;
+        }
 }
 
 @media screen and (max-width: 420px) {

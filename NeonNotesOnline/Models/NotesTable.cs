@@ -16,6 +16,7 @@ namespace NeonNotesOnline.Models
     {
         public int id { get; set; }
         public string username { get; set; }
+        public string notesSubject { get; set; }
         public string notesContent { get; set; }
         public System.DateTime dateMade { get; set; }
     }

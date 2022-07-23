@@ -15,13 +15,59 @@ namespace NeonNotesOnline.Controllers
         //[Route("Login")]
         public ActionResult Index()
         {
-            return View();
+            if (LoginChecker())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+
+            //return View();
         }
 
-        [Route("register")]
+        public bool LoginChecker()
+        {
+            HttpCookie cookiefetch = Request.Cookies["loginID"];
+
+            if (cookiefetch != null)
+            {
+                string cookieID = cookiefetch.Value.Split('=')[1];
+
+                using (DBModel checkAccount = new DBModel())
+                {
+                    var userResult = checkAccount.AccountsTables.Where(x => x.userName == cookieID).FirstOrDefault();
+                    if(userResult != null)
+                    {
+                        LoginStatusCreds.status = true;
+                        LoginStatusCreds.loginIDCred = userResult.userName.ToString();
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        [Route("Register")]
         public ActionResult Register()
         {
-            return View();
+            if (LoginChecker())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult LoginProcess(LoginData lgdata)
@@ -34,6 +80,14 @@ namespace NeonNotesOnline.Controllers
                 var data = getAccount.AccountsTables.Where(x => x.email == lgdata.email && x.password == lgdata.password).FirstOrDefault();
                 if (data != null)
                 {
+                    HttpCookie loginIDCookie = new HttpCookie("loginID");
+                    loginIDCookie.Values["loginID"] = data.userName.ToString();
+                    loginIDCookie.Expires = DateTime.Now.AddDays(30);
+                    Response.Cookies.Add(loginIDCookie);
+
+                    LoginStatusCreds.status = true;
+                    LoginStatusCreds.loginIDCred = data.userName.ToString();
+
                     return RedirectToAction("Index", "Home");
                 }
                 else

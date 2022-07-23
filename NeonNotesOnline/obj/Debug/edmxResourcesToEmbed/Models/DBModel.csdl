@@ -17,8 +17,9 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="username" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="notesSubject" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="notesContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="dateMade" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dateMade" Type="DateTime" Nullable="false" Precision="7" />
   </EntityType>
   <EntityContainer Name="DBModel" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AccountsTables" EntityType="Self.AccountsTable" />

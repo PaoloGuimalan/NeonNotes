@@ -22,6 +22,7 @@ namespace NeonNotesOnline.Controllers
             var newTable = new NotesTable()
             {
                 username = notes.notesOwner,
+                notesSubject = notes.notesSubject,
                 notesContent = notes.notesContent
             };
 
