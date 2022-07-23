@@ -1,0 +1,32 @@
+﻿@model NeonNotesOnline.Models.LoginData
+
+@{
+    ViewBag.PageTitle = "Neon Login";
+}
+
+<div id="loginDiv">
+    <div id="loginDivContent">
+        <ul id="ulLogin">
+            <li>
+            </li>
+            <li>
+                @using (Html.BeginForm("LoginProcess", "Auth"))
+                {
+                    <div id="divLoginForm">
+                        <div id="logoImg">
+                        </div>
+                        <div>
+                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "loginInput", placeholder = "Email" } })
+                        </div>
+                        <div>
+                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "loginInput", placeholder = "Password" } })
+                        </div>
+                        <button id="btnLogin">Login</button>
+                        <p id="noteBringer">If you do not have an existing account, @Html.ActionLink("Click Here!", "Register", "Auth", null, new { @style = "color: #9900ff;" })</p>
+                    </div>
+                }
+            </li>
+        </ul>
+    </div>
+</div>
+

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NeonNotesDBModelStoreContainer" CdmEntityContainer="DBModel">
+    <EntitySetMapping Name="AccountsTables">
+      <EntityTypeMapping TypeName="NeonNotesDBModel.AccountsTable">
+        <MappingFragment StoreEntitySet="AccountsTable">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotesTables">
+      <EntityTypeMapping TypeName="NeonNotesDBModel.NotesTable">
+        <MappingFragment StoreEntitySet="NotesTable">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="notesContent" ColumnName="notesContent" />
+          <ScalarProperty Name="dateMade" ColumnName="dateMade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

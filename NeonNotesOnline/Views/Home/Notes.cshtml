@@ -1,0 +1,71 @@
+﻿@model NeonNotesOnline.Models.NotesArray
+
+@{
+    ViewBag.Title = "Notes";
+}
+
+<h2>Notes</h2>
+
+@Html.ActionLink("Create a Note", "Index", "User", new { area = "" }, new { @class = "navbar-brand" })
+
+<table style="width: 100%; text-align: center">
+    <tr>
+        <th>Notes ID</th>
+        <th>User</th>
+        <th>Content</th>
+        <th>Date Made</th>
+    </tr>
+
+    <tr>
+        <td style="width: 150px; font-weight: bold">Using  ViewBag</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+
+    @foreach (var notes in ViewBag.UserNotes)
+    {
+        <tr>
+            <td>@notes.notesID</td>
+            <td>@notes.notesOwner</td>
+            <td>@notes.notesContent</td>
+            <td>@notes.notesDateMade</td>
+        </tr>
+    }
+
+    <tr>
+        <td style="width: 150px; font-weight: bold">Using ViewBag with ViewModel NotesArray</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+
+    @foreach (var notes in ViewBag.NotesArrayVar.Lister)
+    {
+        <tr>
+            <td>@notes.notesID</td>
+            <td>@notes.notesOwner</td>
+            <td>@notes.notesContent</td>
+            <td>@notes.notesDateMade</td>
+        </tr>
+    }
+
+    <tr>
+        <td style="width: 150px; font-weight: bold">Using ViewModel importing NotesArray Model in this page</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+
+    @foreach (var notesModel in Model.Lister)
+    {
+        <tr>
+            <td>@notesModel.notesID</td>
+            <td>@notesModel.notesOwner</td>
+            <td>@notesModel.notesContent</td>
+            <td>@notesModel.notesDateMade</td>
+        </tr>
+    }
+
+</table>
+

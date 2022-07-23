@@ -1,0 +1,165 @@
+﻿body, html {
+    padding: 0px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(30deg, #560090 5%, black 60%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#mainDiv {
+    width: 100%;
+    height: 100%;
+}
+
+#loginDiv {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+#loginDivContent {
+    background: #140021;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    max-height: 500px;
+    height: 90%;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+#ulLogin{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+    #ulLogin li:nth-of-type(1) {
+        /*background: green;*/
+        width: 50%;
+        background: url('/Resources/neonbglogin.png');
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        background-repeat: no-repeat;
+    }
+
+    #ulLogin li:nth-of-type(2) {
+        /*background: lime;*/
+        width: 50%;
+        background: linear-gradient(-130deg, #560090 5%, #140021 40%);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        overflow-y: auto;
+    }
+
+#logoImg{
+    background: url('/Resources/neonlogo.png');
+    width: 90%;
+    max-width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-size:cover;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+#divLoginForm {
+    background: transparent;
+    text-align: center;
+}
+
+.loginInput {
+    margin: 5px;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 10px;
+    border: solid 2px #9900ff;
+    height: 40px;
+    background: #140021;
+    color: #9900ff;
+    text-align: center;
+    font-size: 15px;
+}
+
+#btnLogin {
+    width: 90%;
+    max-width: 150px;
+    margin-top: 15px;
+    height: 35px;
+    border-radius: 10px;
+    background: #9900ff;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#noteBringer {
+    color: #9900ff;
+    font-size: 13px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.link_mod {
+    color: #9900ff;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #9900ff;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #9900ff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #9900ff;
+}
+
+@media screen and (max-width: 720px) {
+    #ulLogin {
+        flex-direction: column;
+    }
+
+        #ulLogin li:nth-of-type(1) {
+            width: 100%;
+            height: 300px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 0px;
+            border-top-right-radius: 10px;
+            background: url('/Resources/neonbgloginvertical.png');
+        }
+
+        #ulLogin li:nth-of-type(2) {
+            width: 100%;
+            min-height: 200px;
+            background: linear-gradient(-30deg, #560090 5%, #140021 40%);
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+    #loginDivContent {
+        max-height: none;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 420px) {
+   
+    #loginDivContent {
+        max-height: none;
+        height: auto;
+        width: 100%;
+    }
+}
