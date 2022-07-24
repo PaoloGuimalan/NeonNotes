@@ -40,40 +40,87 @@ namespace NeonNotesOnline.Controllers
             }
         }
 
+        public ActionResult LogoutData()
+        {
+            if (Request.Cookies["loginID"] != null)
+            {
+                var c = new HttpCookie("loginID");
+                c.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(c);
+            }
+            return RedirectToActionPermanent("Index", "Auth");
+
+            //return Content("Hello");
+        }
+
         // GET: Home
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult Index()
         {
+            HttpCookie cookiefetch = Request.Cookies["loginID"];
+
             ViewBag.PageTitle = "Neon Notes | Home";
             if (LoginChecker())
             {
-                return View();
+                string cookieID = cookiefetch.Value.Split('=')[1];
+
+                using (DBModel getNotes = new DBModel())
+                {
+                    HomeViewModel datalist = new HomeViewModel()
+                    {
+                        ExistingNotesHolder = getNotes.NotesTables.Where(x => x.username == cookieID).ToList()
+                    };
+
+                    return View(datalist);
+                    /*var datacheck = getNotes.NotesTables.Where(x => x.username == cookieID).ToList();
+
+                    if (datacheck == null)
+                    {
+                        return Content("true");
+                    }
+                    else
+                    {
+                        return Content(String.Format("false: {0}", datacheck[0].username));
+                    }*/
+                }
+
+                //return View();
+
             }
             else
             {
-                return RedirectToAction("Index", "Auth");
+                return RedirectToActionPermanent("Index", "Auth");
             }
         }
 
         [HttpPost]
-        public ActionResult AddNote(NotesList addedNotes)
+        public ActionResult AddNote(HomeViewModel addedNotes)
         {
             if (LoginChecker())
             {
                 var newNotes = new NotesTable()
                 {
                     username = LoginStatusCreds.loginIDCred,
-                    notesSubject = addedNotes.notesSubject,
-                    notesContent = addedNotes.notesContent,
+                    notesSubject = addedNotes.AddNotesHolder.notesSubject,
+                    notesContent = addedNotes.AddNotesHolder.notesContent,
                     dateMade = DateTime.Now
                 };
 
-                using(DBModel adder = new DBModel())
+                try
                 {
-                    adder.NotesTables.Add(newNotes);
-                    adder.SaveChanges();
+                    using (DBModel adder = new DBModel())
+                    {
+                        adder.NotesTables.Add(newNotes);
+                        adder.SaveChanges();
+                    }
+                }
+                catch
+                {
+                    return RedirectToAction("Index");
                 }
 
                 return RedirectToAction("Index");
+                //return Content(String.Format("Username: {0}, Subject: {1}, Content: {2}, Date: {3}", LoginStatusCreds.loginIDCred, addedNotes.AddNotesHolder.notesSubject, addedNotes.AddNotesHolder.notesContent, addedNotes.AddNotesHolder.notesDateMade));
             }
             else
             {
@@ -144,10 +191,18 @@ namespace NeonNotesOnline.Controllers
         //custom route, can declare parameters with datatype auth example /whatsnew/{id:int}/{name:string}
         //can also have method declaration in parameters like range() /whatsnew/{id:int:range(1,12)}/{name:string}
         [Route("about/whatsnew")]
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult About()
         {
-            ViewData["PageTitle"] = "About Neon";
-            return View();
+            if (LoginChecker())
+            {
+                ViewData["PageTitle"] = "About Neon";
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Auth");
+            }
         }
     }
 }

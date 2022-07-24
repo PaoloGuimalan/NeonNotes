@@ -315,6 +315,66 @@
     text-align: center;
 }
 
+#divExistingContent{
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+#ulExistingContent {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-evenly;
+}
+
+.mainDivContent {
+    width: 230px;
+    background: #140021;
+    margin: 10px;
+    color: #9900ff;
+    box-shadow: 0px 5px 5px #9900ff;
+    border-radius: 10px;
+    padding: 10px;
+    height: fit-content;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.noteContentLabel {
+    font-size: 15px;
+    min-height: 100px;
+    text-align: justify;
+}
+
+.dateLabel{
+    position: relative;
+    bottom: 0;
+    font-size: 12px;
+}
+
+#btnLogout{
+    width: 100px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 10px;
+    background: red;
+    border: solid 2px #9900ff;
+    color: #140021;
+    font-weight: bold;
+}
+
+.subjectLabel {
+    font-weight: bold;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #9900ff;
     opacity: 1; /* Firefox */
@@ -417,6 +477,11 @@
         #ulContent li:last-of-type {
             width: 100%;
         }
+
+    #divExistingContent {
+        height: auto;
+        overflow-y: auto;
+    }
 }
 
 @media screen and (max-width: 420px) {

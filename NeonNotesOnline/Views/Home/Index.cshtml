@@ -1,4 +1,4 @@
-﻿@model NeonNotesOnline.Models.NotesList
+﻿@model NeonNotesOnline.Models.HomeViewModel
 @{
    
 }
@@ -14,6 +14,14 @@
                 @Html.ActionLink("About", "About", "Home", null, new { id = "linksHome" })
             </div>
         </li>
+        <li>
+            <div id="divliLink">
+                @using (Html.BeginForm("LogoutData", "Home"))
+                {
+                    <button id="btnLogout">Logout</button>
+                }
+            </div>
+        </li>
     </ul>
 </div>
 <div id="divContent">
@@ -24,14 +32,30 @@
                 @using (Html.BeginForm("AddNote", "Home"))
                 {
                     <div id="divFormCreateContent">
-                        @Html.EditorFor(model => model.notesSubject, new { htmlAttributes = new { @id = "inputSubject", @placeholder = "Subject" } })
-                        @Html.TextAreaFor(model => model.notesContent, new { @id = "inputContent", @placeholder = "Write Someting..." })
+                        @Html.EditorFor(model => model.AddNotesHolder.notesSubject, new { htmlAttributes = new { @id = "inputSubject", @placeholder = "Subject" } })
+                        @Html.TextAreaFor(model => model.AddNotesHolder.notesContent, new { @id = "inputContent", @placeholder = "Write Someting..." })
                         <button id="btnAddNote">Add Note</button>
                     </div>
                 }
             </div>
         </li>
-        <li>Hello</li>
+        <li>
+            <div id="divExistingContent">
+                <p id="labelCreateContent">Your Notes</p>
+                <div id="ulExistingContent">
+                    @foreach (var listing in Model.ExistingNotesHolder)
+                    {
+                        <div class="mainDivContent">
+                            <div class="divIndvContent">
+                                <p class="subjectLabel">@listing.notesSubject</p>
+                                <p class="noteContentLabel">@listing.notesContent</p>
+                                <p class="dateLabel">@listing.dateMade.Date</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </li>
     </ul>
 </div>
 

@@ -13,11 +13,12 @@ namespace NeonNotesOnline.Controllers
     {
         // GET: Auth
         //[Route("Login")]
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult Index()
         {
             if (LoginChecker())
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToActionPermanent("Index", "Home");
             }
             else
             {
@@ -58,11 +59,12 @@ namespace NeonNotesOnline.Controllers
         }
 
         [Route("Register")]
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "None")]
         public ActionResult Register()
         {
             if (LoginChecker())
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToActionPermanent("Index", "Home");
             }
             else
             {
@@ -88,11 +90,11 @@ namespace NeonNotesOnline.Controllers
                     LoginStatusCreds.status = true;
                     LoginStatusCreds.loginIDCred = data.userName.ToString();
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToActionPermanent("Index", "Home");
                 }
                 else
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToActionPermanent("Index");
                 }
             }
 
@@ -119,7 +121,7 @@ namespace NeonNotesOnline.Controllers
                     newAccount.AccountsTables.Add(newAccountTable);
                     newAccount.SaveChanges();
                 }
-                return RedirectToAction("Index");
+                return RedirectToActionPermanent("Index");
             }
             catch(Exception ex)
             {
