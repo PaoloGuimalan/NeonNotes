@@ -371,6 +371,27 @@
     font-weight: bold;
 }
 
+.btnNavContent{
+    background: orange;
+    color: #140021;
+    border: solid 1px orange;
+    border-radius: 5px;
+    text-align: center;
+    margin: 2px;
+    width: 30px;
+    opacity: 0.8;
+}
+
+    .btnNavContent:last-of-type {
+        background: red;
+        border: solid 1px red;
+        color: #140021;
+    }
+
+.spanBtns{
+    margin-bottom: 10px;
+}
+
 .subjectLabel {
     font-weight: bold;
 }

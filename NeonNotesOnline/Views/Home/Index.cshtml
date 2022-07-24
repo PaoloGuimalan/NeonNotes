@@ -49,6 +49,7 @@
                             <div class="divIndvContent">
                                 <p class="subjectLabel">@listing.notesSubject</p>
                                 <p class="noteContentLabel">@listing.notesContent</p>
+                                <span class="spanBtns"><button class="btnNavContent"><i class="fa fa-edit" style="font-size:15px"></i></button><button class="btnNavContent" onclick="location.href='@Url.Action("DeleteNote","Home", new { id = listing.id })'"><i class="fa fa-trash-o" style="font-size:15px"></i></button></span>
                                 <p class="dateLabel">@listing.dateMade.Date</p>
                             </div>
                         </div>

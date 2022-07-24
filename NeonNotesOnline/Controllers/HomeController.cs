@@ -93,6 +93,29 @@ namespace NeonNotesOnline.Controllers
             }
         }
 
+        //[HttpPost]
+        public ActionResult DeleteNote(int id)
+        {
+            if (LoginChecker())
+            {
+                using (DBModel deleteCmd = new DBModel())
+                {
+                    var noteID = new NotesTable() { id = id };
+                    deleteCmd.NotesTables.Attach(noteID);
+                    deleteCmd.NotesTables.Remove(noteID);
+                    deleteCmd.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+            //return Content(String.Format("Hello {0}", id));
+        }
+
         [HttpPost]
         public ActionResult AddNote(HomeViewModel addedNotes)
         {
