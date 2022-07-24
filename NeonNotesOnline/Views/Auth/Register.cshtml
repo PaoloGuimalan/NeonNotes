@@ -31,7 +31,7 @@
                         @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                     </div>
                     <button id="btnLogin">Register</button>
-                    <p id="noteBringerRegister">If you do not have an existing account, @Html.ActionLink("Login Here!", "Index", "Auth", null, new { @style = "color: #140021;" })</p>
+                    <p id="noteBringerRegister">Already have an account? @Html.ActionLink("Login Here!", "Index", "Auth", null, new { @style = "color: #140021;" })</p>
                 </div>
                 }
             </li>
